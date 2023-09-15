@@ -17,6 +17,12 @@ body {
     border: 4px solid blue;
 }
 
-#pacman {
+.pacman {
     display: none;
+}
+#pac-r {
+    transform: rotate(90deg);
+}
+#pac-d {
+    transform: rotate(90deg);
 }
