@@ -1,0 +1,94 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background-color: black;
+}
+
+#cntr-btns {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+}
+
+button {
+    padding: 8px;
+    border-radius: 30px;
+    margin: 8px;
+    background-color: aqua;
+    box-shadow: 2px 2px 24px 4px rgba(94, 198, 163, 0.173);
+}
+
+button:hover{
+    padding: 9px;
+    background-color: rgb(255, 250, 100);
+    border: 0.5px solid wheat;
+    box-shadow: 2px 2px 30px 4px rgba(105, 255, 205, 0.348);
+    cursor: pointer;
+}
+
+
+.fullscreen-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    display: none;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Add these styles to your existing CSS */
+.old-monitor {
+    background-color: #000;
+    border: 8px solid #333;
+    border-radius: 10px;
+    padding: 10px;
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 0 20px rgba(0, 128, 0, 0.5);
+}
+
+.screen {
+    background-color: #000;
+    color: #00FF00;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 14px;
+    padding: 10px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    height: 300px;
+    overflow: auto;
+    position: relative;
+}
+
+
+@keyframes loading {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-animation {
+    width: 50px;
+    height: 50px;
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #3498db;
+    border-radius: 50%;
+    animation: loading 1s linear infinite;
+}
+
