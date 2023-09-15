@@ -13,7 +13,7 @@ const frameCount = 2; // Number of frames in the spritesheet
 const keys = {};
 // on-screen objects
 let leftWall = false, rightWall = false, topWall = false, bottomWall = false;
-const boxWidth = 100, boxHeight = 100;
+const boxWidth = 100, boxHeight = 140;
 
 class Box {
     constructor(x, y, width, height) {
@@ -30,6 +30,31 @@ class Box {
         if (player.y > (this.y - player.height) && player.y < this.bottom) {
             // if on immediate left
             return player.x === this.x - player.width
+        }
+        return false;
+    }
+    isPlayerRight() {
+        // if player is in vertical range
+        if (player.y > (this.y - player.height) && player.y < this.bottom) {
+            // if on immediate right
+            return player.x === this.right;
+        }
+        return false;
+    }
+
+    isPlayerAbove() {
+        // if player is in horizantal range
+        if (player.x > (this.x - player.width) && player.x < this.right) {
+            // if on immediate top
+            return player.y > (this.y - (player.height + 1)) &&  player.y < (this.y - (player.height - 4));
+        }
+        return false;
+    }
+    isPlayerBelow() {
+        // if player is in horizantal range
+        if (player.x > (this.x - player.width) && player.x < this.right) {
+            // if on immediate bottom
+            return player.y > (this.bottom -4) && player.y < (this.bottom + 1);
         }
         return false;
     }
@@ -133,16 +158,23 @@ function updatePlayerFrame() {
 
 function checkCollisions() {
     // check inner boxes
-
-    if (player.y < canvas.height/2) {
-        rightWall = topLBox.isPlayerLeft() || topRBox.isPlayerLeft();
-        // left wall
-    } else {
-        rightWall = bottomLBox.isPlayerLeft() || bottomRBox.isPlayerLeft();
-        // left wall
-    }
-
-
+        // check for boxes on x-axis
+        if (player.y < canvas.height/2) {
+            rightWall = topLBox.isPlayerLeft() || topRBox.isPlayerLeft();
+            leftWall = topLBox.isPlayerRight() || topRBox.isPlayerRight();
+        } else {
+            rightWall = bottomLBox.isPlayerLeft() || bottomRBox.isPlayerLeft();
+            leftWall = bottomLBox.isPlayerRight() || bottomRBox.isPlayerRight();
+        }
+        // check for boxes on y-axis
+        if (player.x < canvas.width/2) {
+            topWall = topLBox.isPlayerBelow() || bottomLBox.isPlayerBelow();
+            bottomWall = topLBox.isPlayerAbove() || bottomLBox.isPlayerAbove();
+        } else {
+            topWall = topRBox.isPlayerBelow() || bottomRBox.isPlayerBelow();
+            bottomWall = topRBox.isPlayerAbove() || bottomRBox.isPlayerAbove();
+        }
+    // end check inner boxes
     // check outer walls
     if (player.x >= canvas.width - player.width) {
         player.speedX = 0;
