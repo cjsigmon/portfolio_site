@@ -29,7 +29,7 @@ if (keys['a'] || keys['A']) {
     if (!leftWall) {
         if (player.speedX === 0) {
             player.speedX = 2;
-            rightWall = !rightWall;
+            rightWall = false;
         }
         player.x -= player.speedX;
     }
@@ -38,7 +38,7 @@ if (keys['d'] || keys['D']) {
     if (!rightWall) {
         if(player.speedX === 0) {
             player.speedX = 2;
-            leftWall = !leftWall;
+            leftWall = false;
         }
         player.x += player.speedX
     }
@@ -46,13 +46,25 @@ if (keys['d'] || keys['D']) {
 
 // y - moving
 if (keys['w'] || keys['W']) {
-    player.y -= player.speedY;
+    if (!topWall) {
+        if(player.speedY === 0) {
+            player.speedY = 2;
+            bottomWall = false;
+        }
+        player.y -= player.speedY;
+    }
 }
 if (keys['s'] || keys['S']) {
-    player.y += player.speedY;
+    if (!bottomWall) {
+        if(player.speedY === 0) {
+            player.speedY = 2;
+            topWall = false;
+        }
+        player.y += player.speedY;
+    }
 }
 
-}
+} // end function updatePlayerPosition()
 
 
 function animate(timestamp) {
@@ -63,11 +75,19 @@ function animate(timestamp) {
         player.speedX = 0;
         rightWall = true;
     }
+    if (player.x <= 0) {
+        player.speedX = 0;
+        leftWall = true;
+    }
 
 
-    if (player.y >= canvas.height - player.height 
-        || player.y < 0) {
+    if (player.y >= canvas.height - player.height) {
         player.speedY = 0;
+        bottomWall = true;
+    }
+    if (player.y <= 0) {
+        player.speedY = 0;
+        topWall = true;
     }
 
     updatePlayerPosition();
