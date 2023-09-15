@@ -1,16 +1,53 @@
 const canvas = document.getElementById("game-board");
 const ctx = canvas.getContext('2d');
-const pacMan = document.getElementById("pac-r");
+//sprite sheet related
 const spriteSheet = document.getElementById("sprite-sheet");
 const frameWidth = 16; // Width of a single frame in pixels
 const frameHeight = 16; // Height of a single frame in pixels
 const frameCount = 2; // Number of frames in the spritesheet
-let timeFrame = 0;
-let currentFrame = 0; // The current frame to display (on row)
-let frameRow = 0;
+    // sprite sheet animation
+    let timeFrame = 0;
+    let currentFrame = 0; // The current frame to display (on row)
+    let frameRow = 0;
+// input
 const keys = {};
-var rotation = 0;
+// on-screen objects
 let leftWall = false, rightWall = false, topWall = false, bottomWall = false;
+const boxWidth = 100, boxHeight = 100;
+
+class Box {
+    constructor(x, y, width, height) {
+      this.x = x;
+      this.y = y;
+      this.width = width;
+      this.height = height;
+      this.bottom = y + height;
+      this.right = x + width;
+    }
+
+    isPlayerLeft() {
+        // if player is in vertical range
+        if (player.y > (this.y - player.height) && player.y < this.bottom) {
+            // if on immediate left
+            return player.x === this.x - player.width
+        }
+        return false;
+    }
+
+
+
+    renderSelf() {
+        ctx.rect(this.x, this.y, this.width, this.height);
+        ctx.strokeStyle = "blue";
+        ctx.lineWidth = 5;
+        ctx.strokeRect(this.x, this.y, this.width, this.height);
+    }
+}
+const topLBox = new Box(80, 80, boxWidth, boxHeight);
+const bottomLBox = new Box(80, canvas.height - (boxHeight + 80), boxWidth, boxHeight);
+const topRBox = new Box(canvas.width - (boxWidth + 80), 80, boxWidth, boxHeight);
+const bottomRBox = new Box(canvas.width - (boxWidth + 80), canvas.height - (boxHeight + 80), boxWidth, boxHeight);
+
 const player = {
     x: 0,
     y: 220,
@@ -20,24 +57,15 @@ const player = {
     speedY: 4,
     defaultSpeed: 4
 };
-class Box {
-    constructor(x, y, width, height) {
-      this.x = x;
-      this.y = y;
-      this.width = width;
-      this.height = height;
-    }
 
-    renderSelf() {
-        ctx.beginPath();
-        ctx.rect(this.x, this.y, this.width, this.height);
-        ctx.strokeStyle = "red";
 
-        ctx.stroke();
-    }
-}
-const topLBox = new Box(player.width, player.height, 100, 100);
 
+
+
+
+
+
+// let the functions begin
 document.addEventListener('keydown', (event) => {
     keys[event.key] = true;
   });
@@ -103,24 +131,19 @@ function updatePlayerFrame() {
     }
 }
 
-function animate(timestamp) {
-    updatePlayerFrame();
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    topLBox.renderSelf();
+function checkCollisions() {
+    // check inner boxes
+
+    if (player.y < canvas.height/2) {
+        rightWall = topLBox.isPlayerLeft() || topRBox.isPlayerLeft();
+        // left wall
+    } else {
+        rightWall = bottomLBox.isPlayerLeft() || bottomRBox.isPlayerLeft();
+        // left wall
+    }
 
 
-    ctx.drawImage(
-        spriteSheet,
-        currentFrame * frameWidth + 2,
-        frameRow * frameHeight,
-        frameWidth,
-        frameHeight,
-        player.x,
-        player.y,
-        player.width,
-        player.height
-    );
-
+    // check outer walls
     if (player.x >= canvas.width - player.width) {
         player.speedX = 0;
         rightWall = true;
@@ -139,6 +162,32 @@ function animate(timestamp) {
         player.speedY = 0;
         topWall = true;
     }
+}
+
+
+
+/// the main function
+function animate(timestamp) {
+    updatePlayerFrame(); // find the right one on sprite sheet
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(
+        spriteSheet,
+        currentFrame * frameWidth + 2,
+        frameRow * frameHeight,
+        frameWidth,
+        frameHeight,
+        player.x,
+        player.y,
+        player.width,
+        player.height
+    );
+    topLBox.renderSelf();
+    topRBox.renderSelf();
+    bottomRBox.renderSelf();
+    bottomLBox.renderSelf();
+
+    checkCollisions();
 
     updatePlayerPosition();
     
