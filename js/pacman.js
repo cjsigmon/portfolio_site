@@ -20,17 +20,23 @@ const player = {
     speedY: 4,
     defaultSpeed: 4
 };
-ctx.drawImage(
-    spriteSheet,
-    currentFrame * frameWidth,
-    0, // Y-coordinate is 0 because all frames are in the same row
-    frameWidth,
-    frameHeight,
-    player.x,
-    player.y,
-    frameWidth,
-    frameHeight
-);
+class Box {
+    constructor(x, y, width, height) {
+      this.x = x;
+      this.y = y;
+      this.width = width;
+      this.height = height;
+    }
+
+    renderSelf() {
+        ctx.beginPath();
+        ctx.rect(this.x, this.y, this.width, this.height);
+        ctx.strokeStyle = "red";
+
+        ctx.stroke();
+    }
+}
+const topLBox = new Box(player.width, player.height, 100, 100);
 
 document.addEventListener('keydown', (event) => {
     keys[event.key] = true;
@@ -100,6 +106,8 @@ function updatePlayerFrame() {
 function animate(timestamp) {
     updatePlayerFrame();
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    topLBox.renderSelf();
+
 
     ctx.drawImage(
         spriteSheet,
