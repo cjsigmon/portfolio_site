@@ -13,7 +13,7 @@ const frameCount = 2; // Number of frames in the spritesheet
 const keys = {};
 // on-screen objects
 let leftWall = false, rightWall = false, topWall = false, bottomWall = false;
-const boxWidth = 100, boxHeight = 140;
+const boxWidth = canvas.width/2 - 90, boxHeight = canvas.height/2 - (45 + 45/2);
 
 class Box {
     constructor(x, y, width, height) {
@@ -27,34 +27,33 @@ class Box {
 
     isPlayerLeft() {
         // if player is in vertical range
-        if (player.y > (this.y - player.height) && player.y < this.bottom) {
+        if (player.y >= (this.y - player.height) && player.y <= this.bottom) {
             // if on immediate left
-            return player.x === this.x - player.width
-        }
+            return player.x >= (this.x - (player.width + 4)) &&  player.x <= (this.x - (player.width - 4));        }
         return false;
     }
     isPlayerRight() {
         // if player is in vertical range
-        if (player.y > (this.y - player.height) && player.y < this.bottom) {
+        if (player.y >= (this.y - player.height) && player.y <= this.bottom) {
             // if on immediate right
-            return player.x === this.right;
+            return player.x >= (this.right -4) && player.x <= (this.right + 2);
         }
         return false;
     }
 
     isPlayerAbove() {
         // if player is in horizantal range
-        if (player.x > (this.x - player.width) && player.x < this.right) {
+        if (player.x >= (this.x - player.width) && player.x <= this.right) {
             // if on immediate top
-            return player.y > (this.y - (player.height + 1)) &&  player.y < (this.y - (player.height - 4));
+            return player.y >= (this.y - (player.height + 1)) &&  player.y <= (this.y - (player.height - 4));
         }
         return false;
     }
     isPlayerBelow() {
         // if player is in horizantal range
-        if (player.x > (this.x - player.width) && player.x < this.right) {
+        if (player.x >= (this.x - player.width) && player.x <= this.right) {
             // if on immediate bottom
-            return player.y > (this.bottom -4) && player.y < (this.bottom + 1);
+            return player.y >= (this.bottom -4) && player.y <= (this.bottom + 4);
         }
         return false;
     }
@@ -68,14 +67,14 @@ class Box {
         ctx.strokeRect(this.x, this.y, this.width, this.height);
     }
 }
-const topLBox = new Box(80, 80, boxWidth, boxHeight);
-const bottomLBox = new Box(80, canvas.height - (boxHeight + 80), boxWidth, boxHeight);
-const topRBox = new Box(canvas.width - (boxWidth + 80), 80, boxWidth, boxHeight);
-const bottomRBox = new Box(canvas.width - (boxWidth + 80), canvas.height - (boxHeight + 80), boxWidth, boxHeight);
+const topLBox = new Box(45, 45, boxWidth, boxHeight);
+const bottomLBox = new Box(45, canvas.height - (boxHeight + 45), boxWidth, boxHeight);
+const topRBox = new Box(canvas.width - (boxWidth + 45), 45, boxWidth, boxHeight);
+const bottomRBox = new Box(canvas.width - (boxWidth + 45), canvas.height - (boxHeight + 45), boxWidth, boxHeight);
 
 const player = {
     x: 0,
-    y: 220,
+    y: canvas.height/2 - 20,
     width: 40,
     height: 40,
     speedX: 4,
@@ -108,6 +107,7 @@ if (keys['a'] || keys['A']) {
             player.speedX = player.defaultSpeed;
             rightWall = false;
         }
+        player.speedY = 0;
         player.x -= player.speedX;
         frameRow = 1;
     }
@@ -118,6 +118,7 @@ if (keys['d'] || keys['D']) {
             player.speedX = player.defaultSpeed;
             leftWall = false;
         }
+        player.speedY = 0;
         player.x += player.speedX;
         frameRow = 0;
     }
@@ -130,6 +131,7 @@ if (keys['w'] || keys['W']) {
             player.speedY = player.defaultSpeed;
             bottomWall = false;
         }
+        player.speedX = 0;
         player.y -= player.speedY;
         frameRow = 2;
     }
@@ -140,6 +142,7 @@ if (keys['s'] || keys['S']) {
             player.speedY = player.defaultSpeed;
             topWall = false;
         }
+        player.speedX = 0;
         player.y += player.speedY;
         frameRow = 3;
     }
