@@ -1,3 +1,7 @@
+@import url("https://use.typekit.net/tvk8mqp.css");
+
+
+
 body, html {
     margin: 0;
     padding: 0;
@@ -6,8 +10,57 @@ body, html {
 }
 
 body {
-    background-color: black;
+    background: linear-gradient(to right, #280700, #00002b, #280700  ); /* Define your gradient colors */
+    background-size: 200% 100%; /* Initial background size */
+    animation: gradientAnimation 4s linear infinite; 
 }
+@keyframes gradientAnimation {
+    0% {
+        background-position: 100% 0; /* Start from the right edge */
+    }
+    100% {
+        background-position: -100% 0; /* End at the left edge */
+    }
+}
+
+
+h3 {
+    text-align: center;
+    font-family: "gal-gothic-variable", sans-serif;
+    font-variation-settings: "wght" 300;
+    font-size: 2em;
+    animation:  fontAnimation 3s ease-in-out infinite;
+    color: rgba(255, 255, 255, 0.792);
+}
+
+@keyframes fontAnimation {
+
+    0% {
+        text-shadow: 2px 2px 14px rgba(0, 0, 0, 0.5);
+    }
+
+    50% {
+        text-shadow: 4px 5px 7px rgba(0, 0, 0, 0.5);
+    }
+
+    100% {
+        text-shadow: 2px 2px 14px rgba(0, 0, 0, 0.5);
+    }
+
+}
+
+#horizon {
+    width: 100vw;
+    height: 2px;
+    position: fixed;
+    top: 14%;
+    background: linear-gradient(45deg, black, rgb(176, 158, 158));
+    background-size: 200% 200%;
+    animation: gradientAnimation 14s linear infinite;
+}
+
+
+
 
 #cntr-btns {
     position: absolute;
@@ -19,9 +72,11 @@ body {
 
 button {
     padding: 8px;
+    height: 70px;
+    width: 130px;
     border-radius: 30px;
-    margin: 8px;
-    background-color: aqua;
+    margin: 16px;
+    background-color: rgba(0, 255, 255, 0.744);
     box-shadow: 2px 2px 24px 4px rgba(94, 198, 163, 0.173);
 }
 
