@@ -1,5 +1,20 @@
 const btns = document.getElementById("cntr-btns");
+const loadBar = document.getElementById("horizon");
+const animation = document.getElementById("animation");
 
+
+window.addEventListener('load', function() {
+    if (performance.navigation.type === 2) {
+        hideAnimation();
+        horizon.style.display = "none";
+      // The page was reached using the back button
+      // You can add your custom logic here
+      console.log('Page reached using the back button.');
+      // Perform actions you want when the page is reached using the back button.
+    }
+  });
+  
+  
 
 function startTypingAnimation(pageIndex) {
     showAnimation();
@@ -7,12 +22,12 @@ function startTypingAnimation(pageIndex) {
 }
 
 function showAnimation() {
-    const animation = document.getElementById("animation");
+    horizon.style.display = "block";
     animation.style.display = "flex";
 }
 
 function hideAnimation() {
-    const animation = document.getElementById("animation");
+    horizon.style.display = "block";
     animation.style.display = "none";
 }
 
@@ -38,13 +53,14 @@ function typeCode(pageIndex) {
         if (index <= codeText.length) {
             setTimeout(type, 50); // Adjust the typing speed as desired
         } else {
-            hideAnimation();
             // Redirect to the new webpage
             switch(pageIndex) {
                 case 1: 
+                hideAnimation();
                     window.location.href = "development/index.html";
                     break;
                 case 2: 
+                hideAnimation();
                     window.location.href = "/media";
                     break;
     
