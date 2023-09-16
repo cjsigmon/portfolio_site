@@ -16,8 +16,22 @@ h1 {
     color: aliceblue;
 }
 
+#main-grid {
+    width: 960px; 
+    /* 960 / 3 = 320 == 28 + 42 */
+    height: 672px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-content: space-evenly;
+    flex-wrap: wrap;
+    border: 2px solid red;
+}
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     #main-grid {
         max-width: 80%;
         margin: auto;
@@ -25,19 +39,19 @@ h1 {
 
 @media (min-width: 768px) {
     #main-grid {
-        max-width: 60%;
+        max-width: 72%;
         margin: 0 auto;
-    }  }
+    }  } */
   
 
 
 .square {
     background-color: #3498db;
-    width: 100%;
+    width: 230px;
+    height: 230px;
+    margin: 15px;
     position: relative;
     overflow: hidden;
-    padding-top: 80%; /* Create a square by setting the padding top to be the same as the width */
-    margin-bottom: 20px; /* Adjust margin as needed */
   }
 
   .square:hover {
