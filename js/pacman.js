@@ -168,21 +168,26 @@ function updatePlayerFrame() {
 function checkCollisions() {
     // check inner boxes
         // check for boxes on x-axis
-        if (player.y < canvas.height/2) {
-            rightWall = topLBox.isPlayerLeft() || topRBox.isPlayerLeft();
-            leftWall = topLBox.isPlayerRight() || topRBox.isPlayerRight();
-        } else {
-            rightWall = bottomLBox.isPlayerLeft() || bottomRBox.isPlayerLeft();
-            leftWall = bottomLBox.isPlayerRight() || bottomRBox.isPlayerRight();
-        }
+
         // check for boxes on y-axis
-        if (player.x < canvas.width/2) {
-            topWall = topLBox.isPlayerBelow() || bottomLBox.isPlayerBelow();
-            bottomWall = topLBox.isPlayerAbove() || bottomLBox.isPlayerAbove();
-        } else {
-            topWall = topRBox.isPlayerBelow() || bottomRBox.isPlayerBelow();
-            bottomWall = topRBox.isPlayerAbove() || bottomRBox.isPlayerAbove();
-        }
+        topWall = false;
+        bottomWall = false;
+        rightWall = false;
+        leftWall = false;
+        boxArr.forEach(element => {
+            if (element.isPlayerLeft()) {
+                rightWall = true;
+            }
+            if (element.isPlayerRight()) {
+                leftWall = true;
+            }
+            if (element.isPlayerAbove()) {
+                bottomWall = true;
+            }
+            if (element.isPlayerBelow()) {
+                topWall = true;
+            }
+        });
     // end check inner boxes
     // check outer walls
     if (player.x >= canvas.width - player.width) {
