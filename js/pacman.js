@@ -68,10 +68,15 @@ class Box {
         ctx.strokeRect(this.x, this.y, this.width, this.height);
     }
 }
+
 const topLBox = new Box(60, 60, boxWidth, boxHeight);
 const bottomLBox = new Box(60, canvas.height - (boxHeight + 66), boxWidth, boxHeight);
+const topMBox = new Box(canvas.width/2 - boxWidth/2, 60, boxWidth, boxHeight);
+const bottomMBox = new Box(canvas.width/2 - boxWidth/2, canvas.height - (boxHeight + 66), boxWidth, boxHeight);
 const topRBox = new Box(canvas.width - (boxWidth + 60), 60, boxWidth, boxHeight);
-const bottomRBox = new Box(canvas.width - (boxWidth + 66), canvas.height - (boxHeight + 60), boxWidth, boxHeight);
+const bottomRBox = new Box(canvas.width - (boxWidth + 60), canvas.height - (boxHeight + 66), boxWidth, boxHeight);
+
+const boxArr = [topLBox, bottomLBox, topMBox, bottomMBox, topRBox, bottomRBox];
 
 
 const player = {
@@ -188,8 +193,6 @@ function checkCollisions() {
         player.speedX = 0;
         leftWall = true;
     }
-
-
     if (player.y >= canvas.height - player.height) {
         player.speedY = 0;
         bottomWall = true;
@@ -219,20 +222,13 @@ function animate(timestamp) {
         player.height
     );
     leftWall = false;
-    topLBox.renderSelf();
-    topRBox.renderSelf();
-    bottomRBox.renderSelf();
-    bottomLBox.renderSelf();
+    boxArr.forEach(box => {
+        box.renderSelf();
+    });
 
     checkCollisions();
-
     updatePlayerPosition();
     
-
-
-
-
-
     // Call requestAnimationFrame to schedule the next frame
     requestAnimationFrame(animate);
   }
