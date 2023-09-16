@@ -12,7 +12,7 @@
 <body>
     <div class="nav d-flex justify-content-center py-3">
         <a class="h3 nav-link" href="/">HOME</a>
-        <button onclick="toggleGameBoard()">PAC MAN MODE</button>
+        <button id="toggle">PAC MAN MODE</button>
     </div>
     <h1 class="p-3">Development</h1>
 
@@ -54,7 +54,8 @@
                 </div>
             </div> -->
 
-            <canvas id="game-board" width="960" height="672"></canvas>
+ 
+                <canvas id="game-board" width="960" height="672"></canvas>
         </div>
         
     </div>
@@ -62,6 +63,8 @@
 
 
     <img class="pacman" id="sprite-sheet" src="../development/img/Pac-Man_Comparable_Sprite_Sheet.png"/>
+
     <script src="pacman.js"></script>
+
 </body>
 </html>
