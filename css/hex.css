@@ -1,0 +1,12 @@
+#my-shape {
+    border: 2px solid;
+  }
+
+  .flip-horizontal {
+    transform: scaleX(-1);
+  }
+
+  .flip-vertical {
+    transform: scaleY(-1);
+  }
+  
