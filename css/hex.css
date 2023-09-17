@@ -9,4 +9,7 @@
   .flip-vertical {
     transform: scaleY(-1);
   }
+  polygon:hover {
+    filter: hue-rotate(30deg)
+  }
   
