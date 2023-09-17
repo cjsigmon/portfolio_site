@@ -1,12 +1,13 @@
 const canvas = document.getElementById("game-board");
 const ctx = canvas.getContext('2d');
 const toggleButton = document.getElementById("toggle");
-const workGrid = document.getElementById("main-grid");
+const workGrid = document.getElementById("grid-as-sidebar");
 
 // Add a click event listener to the button
 toggleButton.addEventListener("click", function() {
     // Toggle the visibility of the canvas by changing its style.display property
     if (canvas.style.display === "none" || canvas.style.display === "") {
+        workGrid.id = "main-grid";
         workGrid.style.backgroundColor = "black";
         canvas.style.display = "block"; // Show the canvas
         window.scrollTo({
@@ -14,6 +15,7 @@ toggleButton.addEventListener("click", function() {
             behavior: 'smooth'
           });
     } else {
+        workGrid.id = "grid-as-sidebar";
         canvas.style.display = "none"; // Hide the canvas
         workGrid.style.background = "none";
     }
