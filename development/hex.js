@@ -153,7 +153,7 @@ function rotate() {
   
   // Example usage:
   const triangleC = new Triangle(0, svgHeight - 50, middleX, 0, svgWidth, svgHeight -50, "transparent", "triangleC", 3);
-  const triangleA = new Triangle(0, svgHeight - 50, middleX, 0, middleX, svgHeight, "white", "triangleA", 2);
+  const triangleA = new Triangle(0, svgHeight - 50, middleX, 0, middleX, svgHeight, "limegreen", "triangleA", 2);
   const triangleB = new Triangle(middleX, svgHeight, middleX, 0, svgWidth, svgHeight -50, "green", "triangleB", 1);
 
   const triangleF = new Triangle(0, svgHeight - 50, middleX, 0, svgWidth, svgHeight -50, "transparent", "triangleF", 3);

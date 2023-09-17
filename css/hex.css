@@ -3,12 +3,24 @@ body {
 }
 
 #center-wrapper {
-    width: 100%;
+    width: 60%;
     display: flex;
-    justify-content: right;
-    top: 0;
-    right: 2%;
-    transform: translateY(-50%);
+    justify-content: space-between;
+
+}
+
+#hex-controls {
+
+  padding: 16px;
+  width: 30%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+}
+
+#myForm {
+  margin-bottom: 100px;
 }
 
 #svg-wrap {

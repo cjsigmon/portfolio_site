@@ -19,6 +19,10 @@ h1 {
     margin: 4pt;
 }
 
+.main-content {
+    width: 100vw;
+}
+
 #main-grid {
     width: 960px; 
     /* 960 / 3 = 320 == 28 + 42 */
@@ -36,7 +40,7 @@ h1 {
 #grid-as-sidebar{
     width: 40%;
     position: relative;
-    z-index: 9999;
+ 
 }
 #grid-as-sidebar .square {
     width: 30px;
