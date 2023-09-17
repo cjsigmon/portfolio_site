@@ -6,6 +6,7 @@
     <title>Development</title>
     <link href="../css/dev.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/pacman.css">
+    <link rel="stylesheet" href="../css/hex.css">
     <link rel="icon" href="../favicon.png">
         <!-- Link to Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -100,15 +101,43 @@
                     <div class="diagonal-line"></div>
                 </div>
             </div> -->
-
- 
                 <canvas id="game-board" width="960" height="672"></canvas>
         </div>
-        
+    
+        <div id="center-wrapper">
+            <div id="svg-wrap">
+                <svg id="my-shape-bottom" height="250" width="250"></svg>
+                <svg id="my-shape" height="250" width="250">   </svg>
+            </div>
+        </div>
     </div>
     <img class="pacman" id="sprite-sheet" src="../development/img/Pac-Man_Comparable_Sprite_Sheet.png"/>
 
+    <form id="myForm">
+        <label for="numberInput">Enter a number:</label>
+        <input type="number" id="numberInput" name="numberInput" />
+        <button type="button" onclick="getNumber()">Submit</button>
+      </form>
+      <button onclick="rotateForever()">CLICK ME</button>
 
+      <script>
+        function getNumber() {
+          // Get the input element by its id
+          var numberInput = document.getElementById("numberInput");
+      
+          // Get the value entered by the user
+          var number = parseFloat(numberInput.value);
+      
+          // Check if the input is a valid number
+          if (!isNaN(number)) {
+            // Do something with the number (e.g., display it)
+            rotateXTimes(number);
+          } else {
+            alert("Please enter a valid number.");
+          }
+        }
+      </script>
+      <script src="hex.js"></script>
 
     <script src="pacman.js"></script>
 
