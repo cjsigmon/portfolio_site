@@ -1,5 +1,6 @@
 body {
     background-color: rgb(25, 29, 20);
+    overflow-x: hidden !important;
 }
 
 #center-wrapper {
@@ -10,13 +11,13 @@ body {
 }
 
 #hex-controls {
-
   padding: 16px;
   width: 30%;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content:space-between;
+  transform: translateY(-14%);
 }
 
 #myForm {
@@ -27,6 +28,7 @@ body {
     height: 100vh;
     width: 50vh;
     position: relative;
+    transform: translateY(-12%);
 }
 
 #svg-wrap > svg {
