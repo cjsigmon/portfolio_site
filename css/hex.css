@@ -11,22 +11,54 @@ body {
 #svg-wrap {
     height: 100vh;
     width: 50vh;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+    position: relative;
 }
 
 #svg-wrap > svg {
     width: 50vh;
     height: 50vh;
+    position: absolute;
 }
 
+#my-shape {
+   
+    animation: goDown 40s ease-in-out 1s infinite;
+}
 
+@keyframes goDown {
+    0% {
+      top: 0%;
+    }
+    50% {
+      top: 50%;
+    }
+
+    100% {
+      top: 0%;
+    }
+}
 
 #my-shape-bottom {
     transform: scaleY(-1);
+    top: 35.3%;
+    scale: 99.4%;
+    animation: goUp 40s ease-in-out 1s infinite;
 }
+
+@keyframes goUp {
+    0% {
+        top: 35.3%;
+      }
+      50% {
+        top: 0%;
+      }
+
+      100% {
+        top: 35.3%;
+      }
+}
+
+
 
 
 

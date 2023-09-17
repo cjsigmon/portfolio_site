@@ -161,8 +161,9 @@ function rotate() {
   triangleA.drawInSVG(myShape);
   triangleB.drawInSVG(myShape);
   triangleF.drawInSVG(myShapeBottom);
-  triangleD.drawInSVG(myShapeBottom)
+  triangleD.drawInSVG(myShapeBottom);
   triangleE.drawInSVG(myShapeBottom);
+
 
 
   
