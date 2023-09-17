@@ -1,6 +1,5 @@
 const canvas = document.getElementById("game-board");
 const ctx = canvas.getContext('2d');
-
 const toggleButton = document.getElementById("toggle");
 const workGrid = document.getElementById("main-grid");
 
@@ -10,6 +9,10 @@ toggleButton.addEventListener("click", function() {
     if (canvas.style.display === "none" || canvas.style.display === "") {
         workGrid.style.backgroundColor = "black";
         canvas.style.display = "block"; // Show the canvas
+        window.scrollTo({
+            top: 140,
+            behavior: 'smooth'
+          });
     } else {
         canvas.style.display = "none"; // Hide the canvas
         workGrid.style.background = "none";

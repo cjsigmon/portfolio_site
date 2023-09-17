@@ -7,9 +7,10 @@ body {
     background-color: rgb(81, 81, 81);
 }
 
-.nav-link {
-    font-weight: bolder;
-    font-size: 20pt;
+@media screen and (max-width: 992px) {
+    #toggle {
+        display: none !important;
+    }
 }
 
 h1 {
