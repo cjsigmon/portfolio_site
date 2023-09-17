@@ -8,15 +8,41 @@
 </head>
 <body>
 
-    <div id="svg-wrap">
-        <svg id="my-shape-bottom" height="250" width="250"></svg>
-        <svg id="my-shape" height="250" width="250">   </svg>
+    <form id="myForm">
+        <label for="numberInput">Enter a number:</label>
+        <input type="number" id="numberInput" name="numberInput" />
+        <button type="button" onclick="getNumber()">Submit</button>
+      </form>
+      
 
+    <div id="center-wrapper">
+        <div id="svg-wrap">
+            <svg id="my-shape-bottom" height="250" width="250"></svg>
+            <svg id="my-shape" height="250" width="250">   </svg>
+    
+        </div>
     </div>
    
       
-      <button onclick="rotate()">CLICK ME</button>
+      <button onclick="rotateForever()">CLICK ME</button>
 
+      <script>
+        function getNumber() {
+          // Get the input element by its id
+          var numberInput = document.getElementById("numberInput");
+      
+          // Get the value entered by the user
+          var number = parseFloat(numberInput.value);
+      
+          // Check if the input is a valid number
+          if (!isNaN(number)) {
+            // Do something with the number (e.g., display it)
+            rotateXTimes(number);
+          } else {
+            alert("Please enter a valid number.");
+          }
+        }
+      </script>
       <script src="hex.js"></script>
 </body>
 </html>

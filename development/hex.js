@@ -22,7 +22,7 @@ class Triangle {
 
     rotate() {
         console.log(counter);
-        if (counter === 1 || counter === 0) {
+        if (counter === 0) {
             if (this.order === 1) {
                 this.leftX = middleX;
                 this.leftY = svgHeight;
@@ -46,23 +46,27 @@ class Triangle {
 
         
         if (counter === 10) {
-            if (this.order === 1) {
+            if (this.order===1) {
                 this.order++;
             } else {
                 this.order--;
             }
         }
 
-        if(counter === 11) {
+        if(counter === 10) {
             if (this.order === 1) {
                 this.rightX = svgWidth;
                 this.rightY = svgHeight - 50;
                 this.leftX = svgWidth;
                 this.leftY = svgHeight - 50;
             } 
+            if (this.order === 2) {
+                this.leftX = 0;
+                this.leftY = svgHeight - 50;
+            } 
         }
 
-        if (counter > 10) {
+        if (counter > 10 && counter < 20) {
             if (this.order === 1) {
                 this.leftX -= (svgWidth / 20);
                 this.leftY += 5;
@@ -115,7 +119,16 @@ class Triangle {
 }
 
 
+function rotateXTimes(x) {
+    for (i = 0; i < x; i++) {
+        rotate();
+    }
+}
 
+function rotateForever() {
+    var intervalID = setInterval(rotate, 50);
+
+}
 
 
 function rotate() {
@@ -130,11 +143,11 @@ function rotate() {
 
   
   // Example usage:
-  const triangleC = new Triangle(0, svgHeight - 50, middleX, 0, svgWidth, svgHeight -50, "white", "triangleC", 3);
+  const triangleC = new Triangle(0, svgHeight - 50, middleX, 0, svgWidth, svgHeight -50, "transparent", "triangleC", 3);
   const triangleA = new Triangle(0, svgHeight - 50, middleX, 0, middleX, svgHeight, "darkgreen", "triangleA", 2);
   const triangleB = new Triangle(middleX, svgHeight, middleX, 0, svgWidth, svgHeight -50, "green", "triangleB", 1);
 
-  const triangleF = new Triangle(0, svgHeight - 50, middleX, 0, svgWidth, svgHeight -50, "white", "triangleF", 3);
+  const triangleF = new Triangle(0, svgHeight - 50, middleX, 0, svgWidth, svgHeight -50, "transparent", "triangleF", 3);
   const triangleD = new Triangle(0, svgHeight - 50, middleX, 0, middleX, svgHeight, "darkgreen", "triangleD", 2);
   const triangleE = new Triangle(middleX, svgHeight, middleX, 0, svgWidth, svgHeight -50, "green", "triangleE", 1);
 
