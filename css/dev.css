@@ -36,6 +36,7 @@ h1 {
 #grid-as-sidebar{
     width: 40%;
     position: relative;
+    z-index: 9999;
 }
 #grid-as-sidebar .square {
     width: 30px;

@@ -108,10 +108,10 @@ class Triangle {
     polygon.id = this.id;
     polygon.addEventListener("click", function() {
         if (rotationCount < 1 || rotationCount >= 5) {
-            alert("Triangle B clicked!");
+            // alert("Triangle B clicked!");
 
         } else {
-            alert("Triangle C clicked!");
+            // alert("Triangle C clicked!");
 
         }
       });

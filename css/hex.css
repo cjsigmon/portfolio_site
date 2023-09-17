@@ -5,7 +5,10 @@ body {
 #center-wrapper {
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: right;
+    top: 0;
+    right: 2%;
+    transform: translateY(-50%);
 }
 
 #svg-wrap {
@@ -21,7 +24,6 @@ body {
 }
 
 #my-shape {
-   
     animation: goDown 40s ease-in-out 1s infinite;
 }
 

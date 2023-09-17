@@ -65,7 +65,7 @@
     <h1 class="p-3 display-4">Development</h1>
 
 
-    <div class="container position-relative">
+    <div class="container-fluid position-relative">
         <div id="grid-as-sidebar"   >
             <!-- Use the 'col-md-4' class to make each square occupy 4 columns on medium-sized screens -->
           
@@ -109,16 +109,16 @@
                 <svg id="my-shape-bottom" height="250" width="250"></svg>
                 <svg id="my-shape" height="250" width="250">   </svg>
             </div>
+            <form id="myForm">
+                <label for="numberInput">Enter a number:</label>
+                <input type="number" id="numberInput" name="numberInput" />
+                <button type="button" onclick="getNumber()">Submit</button>
+              </form>
+              <button onclick="rotateForever()">CLICK ME</button>
         </div>
     </div>
     <img class="pacman" id="sprite-sheet" src="../development/img/Pac-Man_Comparable_Sprite_Sheet.png"/>
 
-    <form id="myForm">
-        <label for="numberInput">Enter a number:</label>
-        <input type="number" id="numberInput" name="numberInput" />
-        <button type="button" onclick="getNumber()">Submit</button>
-      </form>
-      <button onclick="rotateForever()">CLICK ME</button>
 
       <script>
         function getNumber() {
