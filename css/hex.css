@@ -1,6 +1,24 @@
-#my-shape {
+#svg-wrap {
     border: 2px solid;
-  }
+    height: 100vh;
+    width: 50vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#svg-wrap > svg {
+    width: 50vh;
+    height: 50vh;
+}
+
+#my-shape-bottom {
+    transform: scaleY(-1);
+}
+
+
+
 
   .flip-horizontal {
     transform: scaleX(-1);

@@ -22,7 +22,7 @@ class Triangle {
 
     rotate() {
         console.log(counter);
-        if (counter === 1) {
+        if (counter === 1 || counter === 0) {
             if (this.order === 1) {
                 this.leftX = middleX;
                 this.leftY = svgHeight;
@@ -36,10 +36,10 @@ class Triangle {
 
         if (counter <= 10) {
             if (this.order === 1) {
-                this.leftX -= 25;
+                this.leftX -= (svgWidth / 20);
                 this.leftY -= 5;
             } else if (this.order === 2) {
-                this.rightX -= 25;
+                this.rightX -= (svgWidth / 20);
                 this.rightY -= 5;
             }
         }
@@ -64,10 +64,10 @@ class Triangle {
 
         if (counter > 10) {
             if (this.order === 1) {
-                this.leftX -= 25;
+                this.leftX -= (svgWidth / 20);
                 this.leftY += 5;
             } else if (this.order === 2) {
-                this.rightX -= 25;
+                this.rightX -= (svgWidth / 20);
                 this.rightY += 5;
             }
         }
@@ -134,9 +134,9 @@ function rotate() {
   const triangleA = new Triangle(0, svgHeight - 50, middleX, 0, middleX, svgHeight, "darkgreen", "triangleA", 2);
   const triangleB = new Triangle(middleX, svgHeight, middleX, 0, svgWidth, svgHeight -50, "green", "triangleB", 1);
 
-  const triangleF = new Triangle(0, svgHeight - 50, middleX, 0, svgWidth, svgHeight -50, "white", "triangleC", 3);
-  const triangleD = new Triangle(0, svgHeight - 50, middleX, 0, middleX, svgHeight, "darkgreen", "triangleA", 2);
-  const triangleE = new Triangle(middleX, svgHeight, middleX, 0, svgWidth, svgHeight -50, "green", "triangleB", 1);
+  const triangleF = new Triangle(0, svgHeight - 50, middleX, 0, svgWidth, svgHeight -50, "white", "triangleF", 3);
+  const triangleD = new Triangle(0, svgHeight - 50, middleX, 0, middleX, svgHeight, "darkgreen", "triangleD", 2);
+  const triangleE = new Triangle(middleX, svgHeight, middleX, 0, svgWidth, svgHeight -50, "green", "triangleE", 1);
 
   faces.push(triangleC);
   faces.push(triangleA);
