@@ -10,6 +10,19 @@ body {
 
 }
 
+@media (max-width: 768px) {
+  #center-wrapper {
+      width: 100%;
+      filter: blur(10px);
+  }
+}
+
+@media screen and (max-width: 992px) {
+  #hex-controls {
+    display: none !important;
+  }
+}
+
 #hex-controls {
   padding: 16px;
   width: 30%;
