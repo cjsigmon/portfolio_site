@@ -40,7 +40,7 @@ h1 {
 #grid-as-sidebar{
     width: 40%;
     position: relative;
-    z-index: 999;
+    z-index: 99;
  
 }
 
@@ -132,6 +132,35 @@ h1 a:hover {
         border: 20px solid rgba(255, 255, 255, 0.17);
 
     }
-  }
+}
+
+#exampleModalCenter {
+    max-width: 100vw;
+    transform: translateX(-10%);
+}
+
+.modal-content {
+   padding: 10px;
+   width: max-content!important;
+}
+
+@media screen and (max-width: 768px) {
+    #exampleModalCenter {
+        transform: translateY(-30%);
+    }
+}
+
+.modal-title, .modal-body {
+    color: black;
+}
+
+.modal-body {
+    background-color: rgb(167, 173, 178);
+}
+
+.d-inline p {
+    margin: 8px;
+}
+
   
   

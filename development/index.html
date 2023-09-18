@@ -69,30 +69,30 @@
         <div id="grid-as-sidebar"   >
             <!-- Use the 'col-md-4' class to make each square occupy 4 columns on medium-sized screens -->
           
-                <div class="square"><h1>JS Developer + Scroll Animation<br><a href="/final">Falconry Dashboard</a></h1>
+                <div class="square" id="sq-one" data-toggle="modal" data-target="#exampleModalCenter"><h1>JS Developer + Scroll Animation<br><a href="/final">Falconry Dashboard</a></h1>
                     <div class="diagonal-line"></div>
                 </div>
   
-                <div class="square"><h1>React Developer + Interactive Design<br><a href="https://isladefuerza.unc.edu">Isla de Fuerza</a></h1>
+                <div class="square" id="sq-two" data-toggle="modal" data-target="#exampleModalCenter"><h1>React Developer + Interactive Design<br><a href="https://isladefuerza.unc.edu">Isla de Fuerza</a></h1>
                     <div class="diagonal-line"></div>
                 </div>
 
      
-                <div class="square"><h1>Java App Developer<br><a href="../AKARI.jar">Akari</a></h1>
+                <div class="square" id="sq-three" data-toggle="modal" data-target="#exampleModalCenter"><h1>React Developer<br><a href="https://komet-fe-prod.azurewebsites.net/login">Komet</a></h1>
                     <div class="diagonal-line"></div>
                 </div>
     
 
-                <div class="square"><h1>Node JS Developer<br><a href="https://tic-tact-0a10e1a580e3.herokuapp.com">Tic Tac Toe Online</a></h1>
+                <div class="square" id="sq-four" data-toggle="modal" data-target="#exampleModalCenter"><h1>Node JS Developer<br><a href="https://tic-tact-0a10e1a580e3.herokuapp.com">Tic Tac Toe Online</a></h1>
                     <div class="diagonal-line"></div>
                 </div>
 
 
-                <div class="square"><h1>Bootstrap CSS<br><a href="/487/exstream/">Analytics Dashboard</a></h1>
+                <div class="square" id="sq-five" data-toggle="modal" data-target="#exampleModalCenter"><h1>Bootstrap CSS<br><a href="/487/exstream/">Analytics Dashboard</a></h1>
                     <div class="diagonal-line"></div>
                 </div>
 
-                <div class="square"><h1>Bootstrap CSS<br><a href="/487/a2/">Travel Website</a></h1>
+                <div class="square" id="sq-six" data-toggle="modal" data-target="#exampleModalCenter"><h1>Bootstrap CSS<br><a href="/487/a2/">Travel Website</a></h1>
                     <div class="diagonal-line"></div>
                 </div>
 
@@ -112,27 +112,120 @@
                 </div>
                 <div id="hex-controls">
                     <button class="btn btn-primary mx-3" style="height: 38px;" onclick="rotateForever()">Rotate</button>
-                    <form id="myForm">
+                    <!-- <form id="myForm">
                         <label for="numberInput">Rotate by 10deg x times</label>
                         <input type="number" id="numberInput" name="numberInput" />
                         <button class="btn btn-secondary my-2" type="button" onclick="getNumber()">Submit</button>
-                      </form> 
+                      </form>  -->
                 </div>
             </div>
-
-
     </div>
     <img class="pacman" id="sprite-sheet" src="../development/img/Pac-Man_Comparable_Sprite_Sheet.png"/>
 
 
+    <div id="modal-one" class="d-none">
+        <div class="d-inline p-3">
+            <img class="mx-3" src="img/falconry.png" width="600" height="300">
+            <p><br>I made this webpage for a class and had a lot of fun doing it. I used a bit of jQuery and some flourish data visualization.
+                I also took the time to design some scroll animations, designing them in Adobe After Effects then converting the animation to 
+                a JSON file that can be animated with an embed called LottiePlayer. I also did some research on falconry to get this done.
+                <br><br><a href="/final">Falconry Dashboard</a>  
+            </p> 
+        </div>     
+    </div>
+    <div id="modal-two" class="d-none">
+        <div class="d-inline p-3">
+            <img class="mx-3" src="img/isla.png" width="600" height="300">
+            <p>I spent spring break 2023 in Puerto Rico with a group of journalists to cover various issues the islanders face:
+                energy failure, school shutdowns and an eroding coastline to name a few. I was the lead developer for the
+                project's website, so it was my job to implement wireframes and program interactives using React, Gatsby and GraphQL
+                for a headless CMS WordPress development system.
+                <br><br>
+                <a href="https://isladefuerza.unc.edu">Isla de Fuerza</a> 
+            </p> 
+        </div>    
+  
+    </div>
+
+    <div id="modal-three" class="d-none">
+        <div class="d-inline p-3">
+            <img class="mx-3" src="img/komet.png" width="600" height="300">
+            <p>During my internship at GBCS I worked on the website for Komet, primarily on the map screen, placing flights
+                <br>on an embedded Mapbox by coordinate.
+                <br><br>
+                <a href="https://komet-fe-prod.azurewebsites.net/login">Komet login</a>   
+            </p> 
+        </div>    
+    </div>
+
+
+
+    <div id="modal-four" class="d-none">
+        <div class="d-inline p-3">
+            <img class="mx-3" src="img/tact.png" width="600">
+            <p>I got curious about server-side JavaScript and this online multiplayer tic tac toe is how I test out what I'm learning.
+                <br>I've learned to use socket.io to handle client to client communication, and heroku to deploy builds.
+                <br><br>
+                <a href="https://tic-tact-0a10e1a580e3.herokuapp.com">Tic Tac Toe</a>   
+            </p> 
+        </div>    
+    </div>
+
+
+    <div id="modal-five" class="d-none">
+        <div class="d-flex p-3">
+            <img class="mx-3" src="img/photoshop.png" width="300">
+            <img class="mx-3" src="img/extreme.png" width="300">
+        </div>    
+        <p>For this assignment I was given a photoshop file (left) and told to make an identical looking page using just html and css (right). </p> 
+        <a href="/487/exstream/">CSS Extreme</a>   
+    </div>
+
+    <div id="modal-six" class="d-none">
+        <div class="d-inline p-3">
+            <img class="mx-3" src="img/travel.png" width="600" height="300">
+            <p>To put my CSS and Bootstrap knowledge to the test I made a travel blog for an imaginary travel agency.
+                <br><br>
+                <a href="/487/a2">Travel New Zealand</a>   
+            </p> 
+        </div>    
+    </div>
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="modalBod">
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
       <script>
+           const SQUARES = document.querySelectorAll('.square');
+           const modalCenter = document.getElementById('exampleModalCenter');
+           var modalTitle = document.getElementById('exampleModalLongTitle');
+           var modalBody = document.getElementById('modalBod');
+           const modalFive = document.getElementById('modal-five');
+
         function getNumber() {
           // Get the input element by its id
           var numberInput = document.getElementById("numberInput");
-      
           // Get the value entered by the user
           var number = parseFloat(numberInput.value);
-      
           // Check if the input is a valid number
           if (!isNaN(number)) {
             // Do something with the number (e.g., display it)
@@ -141,6 +234,41 @@
             alert("Please enter a valid number.");
           }
         }
+
+        $('#exampleModalCenter').on('hidden.bs.modal', function (e) {
+            SQUARES.forEach(element => {
+                element.style.width = '30px';
+            });
+        })
+
+        SQUARES.forEach(element => {
+        element.addEventListener('click', function () {
+            let part = element.id.slice(3);
+            let selectedModal = document.getElementById("modal-" + part);
+            
+            modalTitle.innerText = element.innerText;
+            modalBody.innerHTML = selectedModal.innerHTML;
+
+            let currentWidth = element.offsetWidth;
+            let targetWidth = currentWidth + 100; // Increase the width by 100px
+        
+            // Define a function to increase the width by 1 pixel
+            function increaseWidth() {
+                if (currentWidth < targetWidth) {
+                    currentWidth += 10;
+                    element.style.width = currentWidth + 'px';
+                    setTimeout(increaseWidth, 50); // Call the function again after 500ms
+                }
+            }
+            
+            increaseWidth();
+        });
+    });
+
+
+
+
+      
       </script>
       <script src="hex.js"></script>
 
