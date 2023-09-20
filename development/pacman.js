@@ -3,6 +3,7 @@ const ctx = canvas.getContext('2d');
 const toggleButton = document.getElementById("toggle");
 const workGrid = document.getElementById("grid-as-sidebar");
 const HEX = document.getElementById("center-wrapper");
+ctx.fillStyle = "white";
 
 // Add a click event listener to the button
 toggleButton.addEventListener("click", function() {
@@ -40,6 +41,33 @@ const keys = {};
 // on-screen objects
 let leftWall = false, rightWall = false, topWall = false, bottomWall = false;
 const boxWidth = 230, boxHeight = 230;
+
+class Dot {
+    constructor(x, y, radius, fillStyle) {
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+    }
+
+    renderSelf() {
+        ctx.fillStyle = this.fillStyle;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+        ctx.fill();
+    }
+}
+
+let dotMatrix = new Array(11);
+
+// Loop to initialize 2D array elements.
+for (let i = 0; i < dotMatrix.length; i++) {
+    dotMatrix[i] = [];
+    for (let j = 0; j < 16; j++) {
+ 
+        const newDot = new Dot(((j+1)*60 - 30), ((i+1)* 61 - 30), 10, "white");
+        dotMatrix[i].push(newDot);
+    }
+}
 
 class Box {
     constructor(x, y, width, height) {
@@ -101,7 +129,6 @@ const topMBox = new Box(canvas.width/2 - boxWidth/2, 60, boxWidth, boxHeight);
 const bottomMBox = new Box(canvas.width/2 - boxWidth/2, canvas.height - (boxHeight + 66), boxWidth, boxHeight);
 const topRBox = new Box(canvas.width - (boxWidth + 60), 60, boxWidth, boxHeight);
 const bottomRBox = new Box(canvas.width - (boxWidth + 60), canvas.height - (boxHeight + 66), boxWidth, boxHeight);
-
 const boxArr = [topLBox, bottomLBox, topMBox, bottomMBox, topRBox, bottomRBox];
 
 
@@ -115,11 +142,6 @@ const player = {
     defaultSpeed: 3
 };
 const playerHitBox = player.width + (player.defaultSpeed * 2);
-
-
-
-
-
 
 
 
@@ -241,6 +263,12 @@ function animate(timestamp) {
     updatePlayerFrame(); // find the right one on sprite sheet
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (i = 0; i < dotMatrix.length; i++) {
+        for (j = 0; j < dotMatrix[i].length; j++) {
+            dotMatrix[i][j].renderSelf();
+        }
+    }
+
     ctx.drawImage(
         spriteSheet,
         currentFrame * frameWidth + 2,
