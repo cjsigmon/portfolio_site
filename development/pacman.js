@@ -50,6 +50,15 @@ class Dot {
         this.fillStyle = fillStyle;
     }
 
+    isWhite() {
+        return this.fillStyle === "white";
+    }
+
+    gotAte() {
+        this.fillStyle = "black";
+        this.renderSelf();
+    }
+
     renderSelf() {
         ctx.fillStyle = this.fillStyle;
         ctx.beginPath();
