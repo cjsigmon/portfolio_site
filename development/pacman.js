@@ -47,6 +47,7 @@ class Dot {
         this.x = x;
         this.y = y;
         this.radius = radius;
+        this.fillStyle = fillStyle;
     }
 
     renderSelf() {
@@ -64,7 +65,7 @@ for (let i = 0; i < dotMatrix.length; i++) {
     dotMatrix[i] = [];
     for (let j = 0; j < 16; j++) {
  
-        const newDot = new Dot(((j+1)*60 - 30), ((i+1)* 61 - 30), 10, "white");
+        const newDot = new Dot(((j+1)*60 - 30), ((i+1)* 61 - 30), 10, "red");
         dotMatrix[i].push(newDot);
     }
 }
