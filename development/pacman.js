@@ -4,6 +4,8 @@ const toggleButton = document.getElementById("toggle");
 const workGrid = document.getElementById("grid-as-sidebar");
 const HEX = document.getElementById("center-wrapper");
 ctx.fillStyle = "white";
+const introAud = document.getElementById("opening-audio");
+const eatAud = document.getElementById("eat-audio");
 
 // Add a click event listener to the button
 toggleButton.addEventListener("click", boardDisplay);
@@ -19,6 +21,7 @@ function boardDisplay() {
             top: 140,
             behavior: 'smooth'
           });
+        introAud.play();
     } else {
         workGrid.id = "grid-as-sidebar";
         canvas.style.display = "none"; // Hide the canvas
@@ -57,6 +60,7 @@ class Dot {
 
     eat() {
         this.fillStyle = "transparent";
+        // eatAud.play();
         dotCount--;
         this.renderSelf();
         if(dotCount === 0) {
@@ -159,11 +163,11 @@ const player = {
     y: canvas.height/2 - 34,
     width: 54,
     height: 54,
-    speedX: 3,
-    speedY: 3,
-    defaultSpeed: 3
+    speedX: 8,
+    speedY: 8,
+    defaultSpeed: 8
 };
-const playerHitBox = player.width + (player.defaultSpeed * 2);
+const playerHitBox = player.width + (5);
 
 
 
