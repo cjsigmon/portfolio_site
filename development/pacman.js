@@ -54,7 +54,7 @@ class Dot {
         return this.fillStyle === "white";
     }
 
-    gotAte() {
+    eat() {
         this.fillStyle = "black";
         this.renderSelf();
     }
@@ -74,7 +74,7 @@ for (let i = 0; i < dotMatrix.length; i++) {
     dotMatrix[i] = [];
     for (let j = 0; j < 16; j++) {
  
-        const newDot = new Dot(((j+1)*60 - 30), ((i+1)* 61 - 30), 10, "red");
+        const newDot = new Dot(((j+1)*60 - 30), ((i+1)* 61 - 30), 10, "white");
         dotMatrix[i].push(newDot);
     }
 }
@@ -266,6 +266,21 @@ function checkCollisions() {
     }
 }
 
+function checkDots() {
+    // if the dot at player's position is white, go black
+    
+    // first identify what dot that is
+    const playerX = player.x;
+    const playerY = player.y
+    const col = Math.round(playerX/60);
+    const row = Math.round(playerY/61);
+    closestDot = dotMatrix[row][col];
+
+    if (closestDot.isWhite()) {
+        closestDot.eat();
+    }
+}
+
 
 
 /// the main function
@@ -296,6 +311,7 @@ function animate(timestamp) {
     });
 
     checkCollisions();
+    checkDots();
     updatePlayerPosition();
     
     // Call requestAnimationFrame to schedule the next frame
