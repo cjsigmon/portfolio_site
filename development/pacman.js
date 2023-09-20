@@ -6,7 +6,9 @@ const HEX = document.getElementById("center-wrapper");
 ctx.fillStyle = "white";
 
 // Add a click event listener to the button
-toggleButton.addEventListener("click", function() {
+toggleButton.addEventListener("click", boardDisplay);
+
+function boardDisplay() {
     // Toggle the visibility of the canvas by changing its style.display property
     if (canvas.style.display === "none" || canvas.style.display === "") {
         workGrid.id = "main-grid";
@@ -24,8 +26,7 @@ toggleButton.addEventListener("click", function() {
         HEX.style.display = "flex";
 
     }
-});
-
+}
 
 //sprite sheet related
 const spriteSheet = document.getElementById("sprite-sheet");
@@ -55,8 +56,14 @@ class Dot {
     }
 
     eat() {
-        this.fillStyle = "black";
+        this.fillStyle = "transparent";
+        dotCount--;
         this.renderSelf();
+        if(dotCount === 0) {
+            alert("YOU WON!!!");
+            boardDisplay();
+            window.location.reload();
+        }
     }
 
     renderSelf() {
@@ -68,7 +75,7 @@ class Dot {
 }
 
 let dotMatrix = new Array(11);
-
+let dotCount = 11*16;
 // Loop to initialize 2D array elements.
 for (let i = 0; i < dotMatrix.length; i++) {
     dotMatrix[i] = [];
@@ -76,6 +83,7 @@ for (let i = 0; i < dotMatrix.length; i++) {
         let setFill = "white";
         if (i%5!=0 && j%5!=0) {
             setFill = "transparent";
+            dotCount--;
         }
  
         const newDot = new Dot(((j+1)*60 - 30), ((i+1)* 61 - 30), 10, setFill);
