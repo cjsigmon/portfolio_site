@@ -73,8 +73,12 @@ let dotMatrix = new Array(11);
 for (let i = 0; i < dotMatrix.length; i++) {
     dotMatrix[i] = [];
     for (let j = 0; j < 16; j++) {
+        let setFill = "white";
+        if (i%5!=0 && j%5!=0) {
+            setFill = "transparent";
+        }
  
-        const newDot = new Dot(((j+1)*60 - 30), ((i+1)* 61 - 30), 10, "white");
+        const newDot = new Dot(((j+1)*60 - 30), ((i+1)* 61 - 30), 10, setFill);
         dotMatrix[i].push(newDot);
     }
 }
