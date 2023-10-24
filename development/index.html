@@ -69,7 +69,8 @@
         <div id="grid-as-sidebar"   >
             <!-- Use the 'col-md-4' class to make each square occupy 4 columns on medium-sized screens -->
           
-                <div class="square" id="sq-one" data-toggle="modal" data-target="#exampleModalCenter"><h1>JS Developer + Scroll Animation<br><a href="/final">Falconry Dashboard</a></h1>
+                <div class="square" id="sq-one" data-toggle="modal" data-target="#exampleModalCenter">
+                    <h1>JS Game Dev/Journalist<br><a href="/487/sidescroll-hist">Sidescrolling Platformer Article</a></h1>
                     <div class="diagonal-line"></div>
                 </div>
   
@@ -78,7 +79,10 @@
                 </div>
 
      
-                <div class="square" id="sq-three" data-toggle="modal" data-target="#exampleModalCenter"><h1>React Developer<br><a href="https://komet-fe-prod.azurewebsites.net/login">Komet</a></h1>
+                <div class="square" id="sq-three" data-toggle="modal" data-target="#exampleModalCenter">
+                    <h1>React Developer<br>
+                        <a href="https://komet-fe-prod.azurewebsites.net/login">Komet</a>
+                    </h1>
                     <div class="diagonal-line"></div>
                 </div>
 
@@ -92,9 +96,14 @@
                 </div>
 
 
-                <div class="square" id="sq-six" data-toggle="modal" data-target="#exampleModalCenter"><h1>Node JS<br><a href="https://tic-tact-0a10e1a580e3.herokuapp.com">Tic Tac Toe Online</a></h1>
-                    <div class="diagonal-line"></div>
+                <div class="square" id="sq-six" data-toggle="modal" data-target="#exampleModalCenter">
+                    <h1>Scroll Animation<br><a href="/final">Falconry Dashboard</a></h1>                    <div class="diagonal-line"></div>
                 </div>
+
+                <!-- <div style="width: 30px;" class="square-unofficial" id="sq-seven" data-toggle="modal" data-target="#exampleModalCenter">
+                    <h1>Scroll Animation<br><a href="/final">Falconry Dashboard</a></h1>
+                    <div class="diagonal-line"></div>
+                </div> -->
 
             <!-- <div class="col-md-12">
                 <div class="square"><h1>React Developer<br><a href="/487/exstream/">Analytics Dashboard</a></h1>
@@ -128,11 +137,12 @@
 
     <div id="modal-one" class="d-none">
         <div class="d-inline p-3">
-            <img class="mx-3" src="img/falconry.png" width="600" height="300">
-            <p><br>I made this webpage for a class and had a lot of fun doing it. I used a bit of jQuery and some flourish data visualization.
-                I also took the time to design some scroll animations, designing them in Adobe After Effects then converting the animation to 
-                a JSON file that can be animated with an embed called LottiePlayer. I also did some research on falconry to get this done.
-                <br><br><a href="/final">Falconry Dashboard</a>  
+            <img class="mx-3" src="img/sidescrollers.png" width="600" height="300">
+            <p><br>
+                ●	Developed and wrote an explainer article about key facets to sidescrolling platformer game design and history in JavaScript/HTML/CSS, and leveraged jQuery plugins for features like a quiz and font-based graphics.
+               <br> ●	Designed and built an interactive minigame for the article with working jump mechanisms, and adjustable toggleable camera strategies such as vertical snapping, horizontal window and horizontal locking. The minigame also allows users to adjust player spritesheet, horizontal locking position, and frame speed.
+               <br> ●	Gained experience in the basics of game development and sharpened JavaScript logical thinking, especially in relation to the Canvas object, and improved graphic design skills. 
+                <br><br><a href="/487/sidescroll-hist">A brief history of sidescrolling platformer games</a>  
             </p> 
         </div>     
     </div>
@@ -184,14 +194,17 @@
 
     <div id="modal-six" class="d-none">
         <div class="d-inline p-3">
-            <img class="mx-3" src="img/tact.png" width="600">
-            <p>I got curious about server-side JavaScript and this online multiplayer tic tac toe is how I test out what I'm learning.
-                <br>I've learned to use socket.io to handle client to client communication, and heroku to deploy builds.
-                <br><br>
-                <a href="https://tic-tact-0a10e1a580e3.herokuapp.com">Tic Tac Toe</a>   
+            <img class="mx-3" src="img/falconry.png" width="600" height="300">
+            <p><br>I made this webpage for a class and had a lot of fun doing it. I used a bit of jQuery and some flourish data visualization.
+                I also took the time to design some scroll animations, designing them in Adobe After Effects then converting the animation to 
+                a JSON file that can be animated with an embed called LottiePlayer. I also did some research on falconry to get this done.
+                <br><br><a href="/final">Falconry Dashboard</a>  
             </p> 
-        </div>    
+        </div>  
     </div>
+
+  
+
 
 
 
@@ -218,7 +231,8 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.2/paper-full.js"></script>
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script> --> 
+    <!-- was loading jquery twice, commenting out this older version -->
       <script>
            const SQUARES = document.querySelectorAll('.square');
            const modalCenter = document.getElementById('exampleModalCenter');
@@ -241,6 +255,7 @@
         }
 
         $('#exampleModalCenter').on('hidden.bs.modal', function (e) {
+            // alert("closed modal");
             SQUARES.forEach(element => {
                 element.style.width = '30px';
             });

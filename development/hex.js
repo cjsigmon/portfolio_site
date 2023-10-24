@@ -29,7 +29,7 @@ class Triangle {
         if (rotationCount === 8) {
             rotationCount = 0;
         }
-        console.log(counter);
+        // console.log(counter);
         if (counter === 0) {
             if (this.order === 1) {
                 this.leftX = middleX;

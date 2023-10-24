@@ -163,9 +163,9 @@ const player = {
     y: canvas.height/2 - 34,
     width: 54,
     height: 54,
-    speedX: 8,
-    speedY: 8,
-    defaultSpeed: 8
+    speedX: 5,
+    speedY: 5,
+    defaultSpeed: 5
 };
 const playerHitBox = player.width + (5);
 

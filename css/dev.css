@@ -73,7 +73,7 @@ h1 {
 
 
 
-.square {
+.square, .square-unofficial {
     background: linear-gradient(45deg, #3498db, black);
     width: 230px;
     height: 230px;
@@ -82,13 +82,13 @@ h1 {
     overflow: hidden;
   }
 
-  .square:hover {
+  .square:hover, .square-unofficial:hover {
     scale: 103%;
     box-shadow: 5px 5px 30px 14px rgba(29, 29, 29, 0.501);
     border-radius: 2px;
 }
 
-.square h1 {
+.square h1, .square-unofficial h1 {
     font-weight: bolder;
     font-size: 25pt;
 }
@@ -114,7 +114,7 @@ h1 a:hover {
     
 }
 
-.square:hover > .diagonal-line {
+.square:hover > .diagonal-line, .square-unofficial:hover > .diagonal-line {
     display: block;
     opacity: 0;
     animation: myAnimation 5s ease-in-out;
