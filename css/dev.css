@@ -142,11 +142,16 @@ h1 a:hover {
 .modal-content {
    padding: 10px;
    width: max-content!important;
+   max-width: 100vw !important;
 }
 
 @media screen and (max-width: 768px) {
     #exampleModalCenter {
-        transform: translateY(-30%);
+        transform: translateY(-25%);
+    }
+    .d-inline img {
+        max-width: 80%;
+        margin-top: 88px;
     }
 }
 
