@@ -147,7 +147,7 @@ h1 a:hover {
 
 @media screen and (max-width: 768px) {
     #exampleModalCenter {
-        transform: translateY(-25%);
+        transform: translateY(-1%);
     }
     .d-inline img {
         max-width: 80%;
